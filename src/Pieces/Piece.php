@@ -1,6 +1,6 @@
 <?php
 /**
- * @author James Parker <james.parker05@dixonscarphone.com>
+ * @author James Parker <jamseyp@gmail.com>
  * @date   01/05/2017
  */
 
@@ -73,7 +73,7 @@ abstract class Piece
      *
      * @return string
      */
-    public function getColor()
+    public function getColor(): string
     {
         return $this->color;
     }
@@ -85,7 +85,7 @@ abstract class Piece
      *
      * @return void
      */
-    public function setColor($color)
+    public function setColor(string $color)
     {
         $this->color = $color;
     }
@@ -100,7 +100,7 @@ abstract class Piece
      *
      * @return bool
      */
-    protected function isValidMove(Coordinate $from, Coordinate $to)
+    protected function isValidMove(Coordinate $from, Coordinate $to): bool
     {
         // Can't move to same position.
         if ($from->isSamePositionAs($to)) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * @author James Parker <james.parker05@dixonscarphone.com>
+ * @author James Parker <jamseyp@gmail.com>
  * @date   01/05/2017
  */
 

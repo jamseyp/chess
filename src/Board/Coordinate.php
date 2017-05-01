@@ -1,6 +1,6 @@
 <?php
 /**
- * @author James Parker <james.parker05@dixonscarphone.com>
+ * @author James Parker <jamseyp@gmail.com>
  * @date   01/05/2017
  */
 
@@ -15,9 +15,9 @@ namespace Chess\Board;
 class Coordinate
 {
     /** @var int */
-    private $xAxis;
+    private $xPosition;
     /** @var int */
-    private $yAxis;
+    private $yPosition;
 
     /**
      * Coordinate constructor.
@@ -27,8 +27,8 @@ class Coordinate
      */
     public function __construct(int $x, int $y)
     {
-        $this->xAxis = $x;
-        $this->yAxis = $y;
+        $this->xPosition = $x;
+        $this->yPosition = $y;
     }
 
     /**
@@ -38,7 +38,7 @@ class Coordinate
      */
     public function getPosition(): string
     {
-        return $this->xAxis . '.' . $this->yAxis;
+        return $this->xPosition . '.' . $this->yPosition;
     }
 
     /**
@@ -50,26 +50,26 @@ class Coordinate
      */
     public function isSamePositionAs(Coordinate $coordinate): bool
     {
-        return $coordinate->getX() === $this->xAxis && $coordinate->getY() === $this->yAxis ? true : false;
+        return $coordinate->getX() === $this->xPosition && $coordinate->getY() === $this->yPosition ? true : false;
     }
 
     /**
-     * Gets xAxis
+     * Gets xPosition
      *
      * @return int
      */
-    public function getX()
+    public function getX(): int
     {
-        return $this->xAxis;
+        return $this->xPosition;
     }
 
     /**
-     * Gets yAxis
+     * Gets yPosition
      *
      * @return int
      */
-    public function getY()
+    public function getY(): int
     {
-        return $this->yAxis;
+        return $this->yPosition;
     }
 }
