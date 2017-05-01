@@ -11,24 +11,21 @@ use Chess\Board\Coordinate;
 
 /**
  * Class Piece
+ * Provides an concrete class for a Piece object.
  *
  * @package Chess\Pieces
  * @author  James Parker <james.parker@dixonscarphone.com>
  */
 abstract class Piece
 {
-
-    /** @var string */
-    private $id;
     /** @var Coordinate */
     private $coordinate;
-    /** @var bool */
-    private $availble;
     /** @var ChessBoard board */
     private $board;
     /** @var string */
     private $color;
-
+    /** @var bool */
+    private $moved;
 
     /**
      * Piece constructor.
@@ -39,8 +36,30 @@ abstract class Piece
     public function __construct(ChessBoard $board, Coordinate $coordinate)
     {
         $this->coordinate = $coordinate;
-        $this->id = uniqid('piece', true);
         $this->board = $board;
+    }
+
+    /**
+     * Returns whether the piece has moved
+     *
+     * @return true if the piece has been moved, false otherwise
+     */
+    public function hasMoved()
+    {
+        return $this->moved;
+    }
+
+    /**
+     * Performs the actual move and sets has moved.
+     *
+     * @param Coordinate $to
+     *
+     * @return void
+     */
+    protected function absoluteMove(Coordinate $to)
+    {
+        $this->coordinate = $to;
+        $this->moved = true;
     }
 
 
@@ -107,6 +126,7 @@ abstract class Piece
             return false;
         }
 
+        // Checks if the current move will be out of bounds.
         if ($this->board->isOutOfBounds($from, $to)) {
             return false;
         }
